@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - PlanPact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            '50': '#eff6ff',
+                            '100': '#dbeafe',
+                            '200': '#bfdbfe',
+                            '300': '#93c5fd',
+                            '400': '#60a5fa',
+                            '500': '#3b82f6',
+                            '600': '#2563eb',
+                            '700': '#1d4ed8',
+                            '800': '#1e40af',
+                            '900': '#1e3a8a',
+                            '950': '#172554',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .quote-fade-enter {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        .quote-fade-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 300ms, transform 300ms;
+        }
+        .quote-fade-exit {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .quote-fade-exit-active {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 300ms, transform 300ms;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <div class="min-h-screen lg:flex">
+        
+        <!-- Left Column: Auth Form -->
+        <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+             <div class="mx-auto w-full max-w-sm lg:w-96">
+                <!-- Logo -->
+                <div class="mb-8">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-600"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM10.5 16.5L6 12L7.41 10.59L10.5 13.67L16.59 7.59L18 9L10.5 16.5Z" fill="currentColor"/></svg>
+                        <span class="text-2xl font-bold text-gray-900">PlanPact</span>
+                    </a>
+                </div>
+
+                <!-- Auth Card Content -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 border">
+                    <!-- Dynamic Header -->
+                    <div id="auth-header">
+                        <h2 class="text-center text-3xl font-extrabold text-gray-900">
+                            Sign in to your account
+                        </h2>
+                        <p class="mt-2 text-center text-sm text-gray-600">
+                            Or
+                            <a href="#" id="show-signup-link" class="font-medium text-primary-600 hover:text-primary-500">
+                                create an account to get started
+                            </a>
+                        </p>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="login-form" class="mt-8 space-y-6" action="#" method="POST">
+                        <input type="hidden" name="remember" value="true">
+                        <div class="rounded-md shadow-sm -space-y-px">
+                            <div>
+                                <label for="login-email-address" class="sr-only">Email address</label>
+                                <input id="login-email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm" placeholder="Email address">
+                            </div>
+                            <div>
+                                <label for="login-password" class="sr-only">Password</label>
+                                <input id="login-password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm" placeholder="Password">
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                                <label for="remember-me" class="ml-2 block text-sm text-gray-900"> Remember me </label>
+                            </div>
+
+                            <div class="text-sm">
+                                <a href="#" class="font-medium text-primary-600 hover:text-primary-500"> Forgot password? </a>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                                Sign in
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Signup Form (hidden by default) -->
+                    <form id="signup-form" class="hidden mt-8 space-y-6" action="#" method="POST">
+                        <div class="rounded-md shadow-sm -space-y-px">
+                             <div>
+                                <label for="full-name" class="sr-only">Full Name</label>
+                                <input id="full-name" name="name" type="text" autocomplete="name" required class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm" placeholder="Full Name">
+                            </div>
+                            <div>
+                                <label for="signup-email-address" class="sr-only">Email address</label>
+                                <input id="signup-email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm" placeholder="Email address">
+                            </div>
+                            <div>
+                                <label for="signup-password" class="sr-only">Password</label>
+                                <input id="signup-password" name="password" type="password" autocomplete="new-password" required class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm" placeholder="Password">
+                            </div>
+                             <div>
+                                <label for="confirm-password" class="sr-only">Confirm Password</label>
+                                <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" required class="appearance-none rounded-none relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                                Create Account
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="mt-6 relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500"> Or continue with </span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                         <div class="grid grid-cols-1 gap-3">
+                            <button type="button" class="w-full inline-flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.0001 12.0024C22.0001 11.246 21.9331 10.5057 21.8021 9.78516H12.218V13.8118H17.8441C17.6251 15.1118 16.9741 16.2201 15.9981 16.9018V19.4922H19.5081C21.1301 17.9942 22.0001 15.228 22.0001 12.0024Z" fill="#4285F4"></path><path d="M12.218 22.0001C15.158 22.0001 17.62 21.0451 19.508 19.4921L15.998 16.9018C15.025 17.5581 13.737 17.9998 12.218 17.9998C9.33799 17.9998 6.89799 16.1181 5.98999 13.5931H2.38199V16.2731C4.22599 19.7851 7.91799 22.0001 12.218 22.0001Z" fill="#34A853"></path><path d="M5.98999 13.593C5.74199 12.885 5.59999 12.131 5.59999 11.336C5.59999 10.541 5.74199 9.78701 5.98999 9.07901V6.39901H2.38199C1.65299 7.78101 1.218 9.49101 1.218 11.336C1.218 13.181 1.65299 14.891 2.38199 16.273L5.98999 13.593Z" fill="#FBBC05"></path><path d="M12.218 4.67216C13.824 4.67216 15.253 5.23616 16.33 6.27316L19.58 3.09716C17.612 1.28416 15.15 0.250153 12.218 0.250153C7.91799 0.250153 4.22599 2.46515 2.38199 5.97715L5.98999 8.65715C6.89799 6.13215 9.33799 4.25015 12.218 4.25015V4.67216Z" fill="#EA4335"></path></svg>
+                                <span class="ml-3">Sign in with Google</span>
+                            </button>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Persuasive Content -->
+        <div class="hidden lg:block relative w-0 flex-1 bg-primary-700">
+            <div class="absolute inset-0 h-full w-full object-cover flex flex-col justify-center items-center text-white p-12">
+                 <div class="text-center max-w-md">
+                    <a href="index.html" class="inline-block">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM10.5 16.5L6 12L7.41 10.59L10.5 13.67L16.59 7.59L18 9L10.5 16.5Z" fill="currentColor"/></svg>
+                    </a>
+                     <h2 class="mt-6 text-3xl font-extrabold text-white">
+                        Finally, plans you can count on.
+                     </h2>
+                     <div id="quote-container" class="mt-4 text-lg text-primary-200 h-16 relative overflow-hidden">
+                        <!-- JS will inject quotes here -->
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // --- Auth Form Toggle ---
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+        const authHeader = document.getElementById('auth-header');
+
+        const loginHeaderHTML = `
+            <h2 class="text-center text-3xl font-extrabold text-gray-900">
+                Sign in to your account
+            </h2>
+            <p class="mt-2 text-center text-sm text-gray-600">
+                Or
+                <a href="#" id="show-signup-link" class="font-medium text-primary-600 hover:text-primary-500">
+                    create an account to get started
+                </a>
+            </p>`;
+
+        const signupHeaderHTML = `
+            <h2 class="text-center text-3xl font-extrabold text-gray-900">
+                Create your account
+            </h2>
+            <p class="mt-2 text-center text-sm text-gray-600">
+                Already have an account?
+                <a href="#" id="show-login-link" class="font-medium text-primary-600 hover:text-primary-500">
+                    Sign in
+                </a>
+            </p>`;
+
+        function showSignupForm(e) {
+            e.preventDefault();
+            loginForm.classList.add('hidden');
+            signupForm.classList.remove('hidden');
+            authHeader.innerHTML = signupHeaderHTML;
+            document.getElementById('show-login-link').addEventListener('click', showLoginForm);
+        }
+
+        function showLoginForm(e) {
+            e.preventDefault();
+            signupForm.classList.add('hidden');
+            loginForm.classList.remove('hidden');
+            authHeader.innerHTML = loginHeaderHTML;
+            document.getElementById('show-signup-link').addEventListener('click', showSignupForm);
+        }
+
+        document.getElementById('show-signup-link').addEventListener('click', showSignupForm);
+
+        // --- Rotating Quotes ---
+        const quotes = [
+            'Stop "herding cats" and get a firm commitment.',
+            'No more last-minute cancellations and flaky friends.',
+            'For when plans need to be set in stone, not "tentative".',
+            'Avoid the anxiety and guilt of uncertain plans.',
+            'Because your time is too valuable for wishy-washiness.'
+        ];
+        const quoteContainer = document.getElementById('quote-container');
+        let currentQuoteIndex = 0;
+
+        function changeQuote() {
+            const oldQuote = quoteContainer.querySelector('p');
+            if (oldQuote) {
+                oldQuote.classList.add('quote-fade-exit-active');
+                oldQuote.addEventListener('transitionend', () => {
+                    oldQuote.remove();
+                });
+            }
+
+            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+            const newQuote = document.createElement('p');
+            newQuote.textContent = quotes[currentQuoteIndex];
+            newQuote.className = 'absolute w-full quote-fade-enter';
+            quoteContainer.appendChild(newQuote);
+
+            requestAnimationFrame(() => {
+                newQuote.classList.add('quote-fade-enter-active');
+            });
+        }
+        
+        // Initial quote
+        const initialQuote = document.createElement('p');
+        initialQuote.textContent = quotes[0];
+        initialQuote.className = 'absolute w-full';
+        quoteContainer.appendChild(initialQuote);
+        
+        setInterval(changeQuote, 4000); // Change quote every 4 seconds
+
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - PlanPact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            '50': '#eff6ff',
+                            '100': '#dbeafe',
+                            '200': '#bfdbfe',
+                            '300': '#93c5fd',
+                            '400': '#60a5fa',
+                            '500': '#3b82f6',
+                            '600': '#2563eb',
+                            '700': '#1d4ed8',
+                            '800': '#1e40af',
+                            '900': '#1e3a8a',
+                            '950': '#172554',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-600"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM10.5 16.5L6 12L7.41 10.59L10.5 13.67L16.59 7.59L18 9L10.5 16.5Z" fill="currentColor"/></svg>
+                        <span class="text-2xl font-bold text-gray-900">PlanPact</span>
+                    </a>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex md:items-center md:space-x-8">
+                    <a href="#my-pacts" class="text-gray-600 hover:text-primary-600 font-medium">My Pacts</a>
+                    <a href="#invitations" class="text-gray-600 hover:text-primary-600 font-medium">Invitations</a>
+                    <a href="create-pact.html" class="text-gray-600 hover:text-primary-600 font-medium">Create Pact</a>
+                </nav>
+                
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button id="user-menu-button" class="flex items-center space-x-2 text-gray-700 hover:text-gray-900">
+                            <img class="h-8 w-8 rounded-full" src="https://placehold.co/100x100/E2E8F0/4A5568?text=U" alt="User Avatar">
+                            <span class="hidden sm:block font-medium">John Doe</span>
+                            <i data-lucide="chevron-down" class="h-4 w-4"></i>
+                        </button>
+                        <div id="user-menu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                            <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Welcome Section -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">Welcome back, John!</h1>
+            <p class="mt-2 text-gray-600">Here's what's happening with your pacts.</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-sm border">
+                <div class="flex items-center">
+                    <div class="bg-primary-100 text-primary-600 rounded-full h-12 w-12 flex items-center justify-center">
+                        <i data-lucide="calendar" class="h-6 w-6"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-600">Active Pacts</p>
+                        <p class="text-2xl font-bold text-gray-900">3</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm border">
+                <div class="flex items-center">
+                    <div class="bg-green-100 text-green-600 rounded-full h-12 w-12 flex items-center justify-center">
+                        <i data-lucide="users" class="h-6 w-6"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-600">Confirmed RSVPs</p>
+                        <p class="text-2xl font-bold text-gray-900">12</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm border">
+                <div class="flex items-center">
+                    <div class="bg-yellow-100 text-yellow-600 rounded-full h-12 w-12 flex items-center justify-center">
+                        <i data-lucide="clock" class="h-6 w-6"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-600">Pending Invites</p>
+                        <p class="text-2xl font-bold text-gray-900">5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h2>
+            <div class="flex flex-wrap gap-4">
+                <a href="create-pact.html" class="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-primary-700 transition duration-300 flex items-center space-x-2">
+                    <i data-lucide="plus" class="h-5 w-5"></i>
+                    <span>Create New Pact</span>
+                </a>
+                <a href="#invitations" class="bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition duration-300 flex items-center space-x-2">
+                    <i data-lucide="mail" class="h-5 w-5"></i>
+                    <span>View Invitations</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- My Pacts Section -->
+        <section id="my-pacts" class="mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">My Pacts</h2>
+                <a href="create-pact.html" class="text-primary-600 hover:text-primary-700 font-medium">Create New</a>
+            </div>
+            
+            <div class="grid gap-6">
+                <!-- Pact Card 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border hover:shadow-md transition-shadow">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-gray-900">Weekend BBQ at Central Park</h3>
+                            <p class="text-gray-600 mt-1">Saturday, March 15th at 2:00 PM</p>
+                            <p class="text-gray-500 mt-2">Central Park, New York</p>
+                            
+                            <div class="flex items-center mt-4 space-x-6">
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="users" class="h-4 w-4 text-green-600"></i>
+                                    <span class="text-sm text-gray-600">8 confirmed</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="clock" class="h-4 w-4 text-yellow-600"></i>
+                                    <span class="text-sm text-gray-600">2 pending</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="calendar" class="h-4 w-4 text-blue-600"></i>
+                                    <span class="text-sm text-gray-600">3 days away</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ml-4 flex space-x-2">
+                            <a href="pact-detail.html?id=1" class="bg-primary-100 text-primary-600 px-4 py-2 rounded-lg font-medium hover:bg-primary-200 transition">View Details</a>
+                            <button class="bg-gray-100 text-gray-600 px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition">Edit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pact Card 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border hover:shadow-md transition-shadow">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-gray-900">Book Club Meeting</h3>
+                            <p class="text-gray-600 mt-1">Thursday, March 20th at 7:00 PM</p>
+                            <p class="text-gray-500 mt-2">Sarah's Coffee Shop</p>
+                            
+                            <div class="flex items-center mt-4 space-x-6">
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="users" class="h-4 w-4 text-green-600"></i>
+                                    <span class="text-sm text-gray-600">5 confirmed</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="x-circle" class="h-4 w-4 text-red-600"></i>
+                                    <span class="text-sm text-gray-600">2 declined</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="calendar" class="h-4 w-4 text-blue-600"></i>
+                                    <span class="text-sm text-gray-600">8 days away</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ml-4 flex space-x-2">
+                            <a href="pact-detail.html?id=2" class="bg-primary-100 text-primary-600 px-4 py-2 rounded-lg font-medium hover:bg-primary-200 transition">View Details</a>
+                            <button class="bg-gray-100 text-gray-600 px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition">Edit</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pact Card 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border hover:shadow-md transition-shadow">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-semibold text-gray-900">Birthday Party - Mike's 30th</h3>
+                            <p class="text-gray-600 mt-1">Saturday, March 22nd at 8:00 PM</p>
+                            <p class="text-gray-500 mt-2">The Rooftop Bar, Downtown</p>
+                            
+                            <div class="flex items-center mt-4 space-x-6">
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="users" class="h-4 w-4 text-green-600"></i>
+                                    <span class="text-sm text-gray-600">15 confirmed</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="clock" class="h-4 w-4 text-yellow-600"></i>
+                                    <span class="text-sm text-gray-600">7 pending</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i data-lucide="calendar" class="h-4 w-4 text-blue-600"></i>
+                                    <span class="text-sm text-gray-600">10 days away</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ml-4 flex space-x-2">
+                            <a href="pact-detail.html?id=3" class="bg-primary-100 text-primary-600 px-4 py-2 rounded-lg font-medium hover:bg-primary-200 transition">View Details</a>
+                            <button class="bg-gray-100 text-gray-600 px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Invitations Section -->
+        <section id="invitations">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Pending Invitations</h2>
+            
+            <div class="grid gap-4">
+                <!-- Invitation Card 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900">Game Night at Alex's</h3>
+                            <p class="text-gray-600 mt-1">Friday, March 14th at 7:30 PM</p>
+                            <p class="text-gray-500 mt-2">Alex Johnson's Apartment</p>
+                            <p class="text-sm text-gray-500 mt-2">Invited by Alex Johnson</p>
+                        </div>
+                        <div class="ml-4 flex space-x-2">
+                            <button class="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition">I'm In</button>
+                            <button class="bg-red-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-700 transition">Can't Make It</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Invitation Card 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-sm border">
+                    <div class="flex items-start justify-between">
+                        <div class="flex-1">
+                            <h3 class="text-lg font-semibold text-gray-900">Hiking Trip - Blue Ridge Mountains</h3>
+                            <p class="text-gray-600 mt-1">Sunday, March 17th at 9:00 AM</p>
+                            <p class="text-gray-500 mt-2">Blue Ridge Parkway Trailhead</p>
+                            <p class="text-sm text-gray-500 mt-2">Invited by Maria Rodriguez</p>
+                        </div>
+                        <div class="ml-4 flex space-x-2">
+                            <button class="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700 transition">I'm In</button>
+                            <button class="bg-red-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-700 transition">Can't Make It</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // User menu toggle
+        const userMenuButton = document.getElementById('user-menu-button');
+        const userMenu = document.getElementById('user-menu');
+
+        userMenuButton.addEventListener('click', () => {
+            userMenu.classList.toggle('hidden');
+        });
+
+        // Close user menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!userMenuButton.contains(e.target) && !userMenu.contains(e.target)) {
+                userMenu.classList.add('hidden');
+            }
+        });
+
+        // RSVP buttons functionality
+        document.querySelectorAll('.bg-green-600, .bg-red-600').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const isConfirm = e.target.classList.contains('bg-green-600');
+                const card = e.target.closest('.bg-white');
+                
+                if (isConfirm) {
+                    card.innerHTML = `
+                        <div class="flex items-center justify-center py-8">
+                            <div class="text-center">
+                                <i data-lucide="check-circle" class="h-12 w-12 text-green-600 mx-auto mb-2"></i>
+                                <p class="text-lg font-semibold text-green-600">You're In!</p>
+                                <p class="text-gray-600">You'll receive reminders before the event.</p>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    card.innerHTML = `
+                        <div class="flex items-center justify-center py-8">
+                            <div class="text-center">
+                                <i data-lucide="x-circle" class="h-12 w-12 text-red-600 mx-auto mb-2"></i>
+                                <p class="text-lg font-semibold text-red-600">Declined</p>
+                                <p class="text-gray-600">Thanks for letting us know!</p>
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                lucide.createIcons();
+            });
+        });
+    </script>
+</body>
+</html>

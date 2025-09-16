@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanPact - Stop Flaky Plans, Start Making Pacts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            '50': '#eff6ff',
+                            '100': '#dbeafe',
+                            '200': '#bfdbfe',
+                            '300': '#93c5fd',
+                            '400': '#60a5fa',
+                            '500': '#3b82f6',
+                            '600': '#2563eb',
+                            '700': '#1d4ed8',
+                            '800': '#1e40af',
+                            '900': '#1e3a8a',
+                            '950': '#172554',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .gradient-bg {
+            background: linear-gradient(120deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+    <!-- Header -->
+    <header class="sticky top-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center space-x-2">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-600"><path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM10.5 16.5L6 12L7.41 10.59L10.5 13.67L16.59 7.59L18 9L10.5 16.5Z" fill="currentColor"/></svg>
+                        <span class="text-2xl font-bold text-gray-900">PlanPact</span>
+                    </a>
+                </div>
+                <!-- Navigation -->
+                <nav class="hidden md:flex md:items-center md:space-x-8">
+                    <a href="#features" class="text-gray-600 hover:text-primary-600 font-medium">Features</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-primary-600 font-medium">Testimonials</a>
+                    <a href="pipeline.html" class="text-gray-600 hover:text-primary-600 font-medium">How?</a>
+                    <a href="#faq" class="text-gray-600 hover:text-primary-600 font-medium">FAQ</a>
+                </nav>
+                <!-- CTA -->
+                <div class="flex items-center space-x-4">
+                    <a href="login.html" class="hidden sm:inline-block text-primary-600 hover:text-primary-700 font-semibold">Log In</a>
+                    <a href="login.html" class="bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold shadow-md hover:bg-primary-700 transition duration-300">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative gradient-bg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                    Stop <span class="text-primary-600">Herding Cats.</span><br>Start Making Pacts.
+                </h1>
+                <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-600">
+                    Tired of flaky friends and uncertain plans? PlanPact brings certainty to your social life. Create unbreakable plans, get firm commitments, and stop the last-minute stress.
+                </p>
+                <div class="mt-10 flex justify-center items-center space-x-4">
+                    <a href="login.html" class="bg-primary-600 text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-lg hover:bg-primary-700 transition transform hover:scale-105">Create Your First Pact</a>
+                    <a href="#features" class="text-gray-700 font-semibold px-6 py-3">Learn More &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-extrabold text-gray-900">Finally, Planning Without the Headache</h2>
+                    <p class="mt-4 text-lg text-gray-600">Everything you need for flake-proof plans.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200">
+                        <div class="bg-primary-100 text-primary-600 rounded-full h-12 w-12 flex items-center justify-center">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold">No More "Maybes"</h3>
+                        <p class="mt-2 text-gray-600">Invite friends to a pact and get a clear "I'm In" or "Can't Make It." We've eliminated the "maybe" to give you a real, reliable headcount.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200">
+                        <div class="bg-primary-100 text-primary-600 rounded-full h-12 w-12 flex items-center justify-center">
+                            <i data-lucide="check-circle"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold">Centralized & Clear</h3>
+                        <p class="mt-2 text-gray-600">All event details, RSVPs, and updates live in one place. Stop digging through endless, chaotic group chats for information.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200">
+                        <div class="bg-primary-100 text-primary-600 rounded-full h-12 w-12 flex items-center justify-center">
+                            <i data-lucide="bell"></i>
+                        </div>
+                        <h3 class="mt-6 text-xl font-bold">Smart Reminders</h3>
+                        <p class="mt-2 text-gray-600">Everyone who commits gets automatic reminders before the event, reducing no-shows and ensuring everyone is on the same page.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="text-center mb-12">
+                    <h2 class="text-3xl font-extrabold text-gray-900">Don't Just Take Our Word For It</h2>
+                    <p class="mt-4 text-lg text-gray-600">See what our first users are saying.</p>
+                </div>
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-md">
+                        <p class="text-gray-700">"This is exactly what our friend group needed. Planning our annual trip went from a 2-week text nightmare to being settled in one evening. Game changer."</p>
+                        <div class="mt-6 flex items-center space-x-4">
+                            <img class="h-12 w-12 rounded-full" src="https://placehold.co/100x100/E2E8F0/4A5568?text=JS" alt="User Avatar">
+                            <div>
+                                <p class="font-bold">Jessica S.</p>
+                                <p class="text-sm text-gray-500">Annual Trip Organizer</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="bg-white p-8 rounded-2xl shadow-md">
+                        <p class="text-gray-700">"The amount of stress PlanPact has removed from hosting BBQs is incredible. I know exactly how much food to buy. No more guessing!"</p>
+                        <div class="mt-6 flex items-center space-x-4">
+                            <img class="h-12 w-12 rounded-full" src="https://placehold.co/100x100/E2E8F0/4A5568?text=MB" alt="User Avatar">
+                            <div>
+                                <p class="font-bold">Michael B.</p>
+                                <p class="text-sm text-gray-500">Grill Master & Host</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-md">
+                        <p class="text-gray-700">"As someone with social anxiety, the 'no maybes' rule is a relief. It makes it easier to say no without guilt and commit fully when I say yes."</p>
+                        <div class="mt-6 flex items-center space-x-4">
+                            <img class="h-12 w-12 rounded-full" src="https://placehold.co/100x100/E2E8F0/4A5568?text=AK" alt="User Avatar">
+                            <div>
+                                <p class="font-bold">Amanda K.</p>
+                                <p class="text-sm text-gray-500">Weekly Book Club</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-extrabold text-gray-900">Frequently Asked Questions</h2>
+                </div>
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <details class="group bg-gray-50 p-6 rounded-lg cursor-pointer">
+                        <summary class="flex items-center justify-between font-semibold text-lg text-gray-900">
+                            Is PlanPact free to use?
+                            <i data-lucide="chevron-down" class="group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600">Yes! The core features of PlanPact for creating events and getting commitments are completely free. We plan to introduce optional premium features for power users in the future.</p>
+                    </details>
+                    <!-- FAQ 2 -->
+                    <details class="group bg-gray-50 p-6 rounded-lg cursor-pointer">
+                        <summary class="flex items-center justify-between font-semibold text-lg text-gray-900">
+                            What happens if someone doesn't respond?
+                            <i data-lucide="chevron-down" class="group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600">Unanswered invitations are clearly marked as 'Pending.' The host can send a friendly nudge with a single tap, but the headcount will only reflect those who have actively committed.</p>
+                    </details>
+                    <!-- FAQ 3 -->
+                    <details class="group bg-gray-50 p-6 rounded-lg cursor-pointer">
+                        <summary class="flex items-center justify-between font-semibold text-lg text-gray-900">
+                            Can I use this for professional events?
+                            <i data-lucide="chevron-down" class="group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <p class="mt-4 text-gray-600">While designed for social planning, its simplicity makes it useful for small, informal team meetups or client lunches where you need a quick, firm headcount without the formality of calendar invites.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-primary-600">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+                <h2 class="text-3xl font-extrabold text-white">Ready to End the Planning Nightmare?</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg text-primary-200">
+                    Create your first pact in seconds and experience the relief of certain plans.
+                </p>
+                <div class="mt-8">
+                     <a href="login.html" class="bg-white text-primary-600 px-8 py-3 rounded-lg text-lg font-semibold shadow-lg hover:bg-gray-100 transition transform hover:scale-105">Get Started for Free</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <p class="text-lg font-semibold">&copy; 2025 PlanPact. All Rights Reserved.</p>
+                    <p class="text-gray-400">Making plans you can count on.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i data-lucide="facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
